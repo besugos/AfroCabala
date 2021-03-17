@@ -1,9 +1,11 @@
 package com.besugos.afrocabala
 
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Typeface
 import android.os.Build
 
@@ -34,12 +36,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtPrimordial: TextView
     private lateinit var txtObstaculo: TextView
     private lateinit var date: String
+    private lateinit var database: Database
     var formatDate = SimpleDateFormat("dd/MM/YYYY", Locale.US)
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+        database = Database()
 
         txtDate = findViewById(R.id.txtDate)
         txtTesta = findViewById(R.id.txtTesta)
@@ -194,15 +201,28 @@ class MainActivity : AppCompatActivity() {
         return n1 + n2
     }
 
+
     private fun showDialog(origem: String, odu:Int) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.detail_dialog)
+
         val title = dialog.findViewById(R.id.tvTitle) as TextView
+        val posExplain = dialog.findViewById(R.id.tvPosExplain) as TextView
         val body = dialog.findViewById(R.id.tvBody) as TextView
+        val orixas = dialog.findViewById(R.id.tvOduOrixas) as TextView
+        val oduExplain = dialog.findViewById(R.id.tvOduExplain) as TextView
+        val sintese = dialog.findViewById(R.id.tvOduSintese) as TextView
+
         title.text = origem
-        body.text = odu.toString()
+        body.text = database.odu[odu].nome
+        posExplain.text = getPosDesc(origem)
+        orixas.text = "Orixás regentes: " + database.odu[odu].orixas
+        oduExplain.text = database.definitions[odu]
+        sintese.text = database.odu[odu].palavra
+
+
         val yesBtn = dialog.findViewById(R.id.btn_yes) as ImageView
         yesBtn.setOnClickListener {
             dialog.dismiss()
@@ -210,6 +230,20 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
 
+    }
+
+    private fun getPosDesc(origem: String): String {
+        when (origem) {
+            "Testa" -> return database.posicao[0]
+            "Nuca" -> return database.posicao[1]
+            "Direita" -> return database.posicao[2]
+            "Esquerda" -> return database.posicao[3]
+            "Placenta" -> return database.posicao[4]
+            "Principal" -> return database.posicao[5]
+            "Primordial" -> return database.posicao[6]
+            "Obstáculo" -> return database.posicao[7]
+        }
+        return ""
     }
 }
 
