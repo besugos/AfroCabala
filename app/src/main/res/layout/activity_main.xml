@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llBase"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:background="@color/cardview_dark_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clique aqui para escolher uma data"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/cardview_light_background"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCalc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="12dp"
+        android:text="Calcula"
+        android:textSize="20sp"
+        android:theme="@style/Widget.AppCompat.Button.Colored"
+        android:typeface="normal"
+        app:cornerRadius="8dp"
+        android:layout_marginBottom="16dp"
+        android:enabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtDate" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtTesta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toTopOf="@+id/ivHead"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNuca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/txtEsq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:layout_marginEnd="24dp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            app:layout_constraintBottom_toBottomOf="@+id/ivHead"
+            app:layout_constraintEnd_toStartOf="@id/ivHead"/>
+
+        <TextView
+            android:id="@+id/txtDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            app:layout_constraintBottom_toBottomOf="@+id/ivHead"
+            app:layout_constraintStart_toEndOf="@id/ivHead"/>
+
+        <TextView
+            android:id="@+id/txtPlacenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            app:layout_constraintBottom_toBottomOf="@+id/ivHead"
+            app:layout_constraintStart_toStartOf="@id/ivHead"
+            app:layout_constraintEnd_toEndOf="@id/ivHead"/>
+
+        <ImageView
+            android:id="@+id/ivHead"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/headtop3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/lblPrimordial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Primordial"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNuca" />
+
+        <TextView
+            android:id="@+id/lblPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Principal"
+            android:textColor="@color/cardview_light_background"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toStartOf="@id/lblPrimordial"
+            app:layout_constraintTop_toBottomOf="@+id/txtNuca" />
+
+        <TextView
+            android:id="@+id/lblObstaculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            android:text="Obstáculo"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintStart_toEndOf="@id/lblPrimordial"
+            app:layout_constraintTop_toBottomOf="@id/txtNuca" />
+
+        <TextView
+            android:id="@+id/txtPrimordial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="@+id/lblPrimordial"
+            app:layout_constraintStart_toStartOf="@+id/lblPrimordial"
+            app:layout_constraintTop_toBottomOf="@+id/lblPrimordial" />
+
+        <TextView
+            android:id="@+id/txtPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="@+id/lblPrincipal"
+            app:layout_constraintStart_toStartOf="@+id/lblPrincipal"
+            app:layout_constraintTop_toBottomOf="@+id/lblPrincipal" />
+
+        <TextView
+            android:id="@+id/txtObstaculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="@+id/lblObstaculo"
+            app:layout_constraintStart_toStartOf="@+id/lblObstaculo"
+            app:layout_constraintTop_toBottomOf="@+id/lblObstaculo" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testa"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toTopOf="@+id/txtTesta"
+            app:layout_constraintEnd_toEndOf="@+id/txtTesta"
+            app:layout_constraintStart_toStartOf="@+id/txtTesta" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esquerda"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toTopOf="@+id/txtEsq"
+            app:layout_constraintEnd_toEndOf="@+id/txtEsq"
+            app:layout_constraintStart_toStartOf="@+id/txtEsq" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Direita"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toTopOf="@+id/txtDir"
+            app:layout_constraintEnd_toEndOf="@+id/txtDir"
+            app:layout_constraintStart_toStartOf="@+id/txtDir" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Placenta"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toTopOf="@+id/txtPlacenta"
+            app:layout_constraintEnd_toEndOf="@+id/txtPlacenta"
+            app:layout_constraintStart_toStartOf="@+id/txtPlacenta" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuca"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="@+id/ivHead"
+            app:layout_constraintStart_toStartOf="@+id/ivHead"
+            app:layout_constraintTop_toBottomOf="@+id/ivHead" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

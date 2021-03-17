@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:layout_width="400dp"
+    android:layout_height="700dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btn_yes"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_baseline_close_24" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Position"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvPosExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Position Explain"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Odu"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvOduOrixas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Orixas"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvOduExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Odu Explain"
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+
+
+        </LinearLayout>
+
+    </FrameLayout>
