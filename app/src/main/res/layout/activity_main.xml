@@ -5,24 +5,13 @@
     android:id="@+id/llBase"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    android:gravity="center_horizontal"
     android:background="@color/cardview_dark_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:padding="16dp"
-    android:screenOrientation="portrait" >
-
-    <TextView
-        android:id="@+id/txtDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clique aqui para escolher uma data"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/cardview_light_background"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:screenOrientation="portrait"
+    tools:context=".MainActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCalc"
@@ -30,17 +19,27 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:padding="12dp"
-        android:text="Calcula"
-        android:textSize="20sp"
+        android:text="@string/btnText"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
         android:theme="@style/Widget.AppCompat.Button.Colored"
-        android:typeface="normal"
-        app:cornerRadius="8dp"
-        android:layout_marginBottom="16dp"
-        android:enabled="false"
+        app:cornerRadius="8dp" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/noDate"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtDate" />
+
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/base"
@@ -51,9 +50,9 @@
             android:id="@+id/txtTesta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/ivHead"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -62,9 +61,9 @@
             android:id="@+id/txtNuca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,45 +73,45 @@
             android:id="@+id/txtEsq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:layout_marginEnd="24dp"
             android:textColor="@color/cardview_light_background"
-            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/ivHead"
-            app:layout_constraintEnd_toStartOf="@id/ivHead"/>
+            app:layout_constraintEnd_toStartOf="@id/ivHead"
+            app:layout_constraintTop_toTopOf="@+id/ivHead" />
 
         <TextView
             android:id="@+id/txtDir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:layout_marginStart="24dp"
             android:textColor="@color/cardview_light_background"
-            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/ivHead"
-            app:layout_constraintStart_toEndOf="@id/ivHead"/>
+            app:layout_constraintStart_toEndOf="@id/ivHead"
+            app:layout_constraintTop_toTopOf="@+id/ivHead" />
 
         <TextView
             android:id="@+id/txtPlacenta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:layout_marginStart="8dp"
             android:textColor="@color/cardview_light_background"
-            app:layout_constraintTop_toTopOf="@+id/ivHead"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/ivHead"
+            app:layout_constraintEnd_toEndOf="@id/ivHead"
             app:layout_constraintStart_toStartOf="@id/ivHead"
-            app:layout_constraintEnd_toEndOf="@id/ivHead"/>
+            app:layout_constraintTop_toTopOf="@+id/ivHead" />
 
         <ImageView
             android:id="@+id/ivHead"
             android:layout_width="200dp"
             android:layout_height="250dp"
-            android:layout_marginBottom="32dp"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:src="@drawable/headtop3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Primordial"
+            android:text="@string/primordial"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,9 +135,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Principal"
-            android:textColor="@color/cardview_light_background"
             android:layout_marginEnd="32dp"
+            android:text="@string/principal"
+            android:textColor="@color/cardview_light_background"
             app:layout_constraintEnd_toStartOf="@id/lblPrimordial"
             app:layout_constraintTop_toBottomOf="@+id/txtNuca" />
 
@@ -146,9 +145,9 @@
             android:id="@+id/lblObstaculo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginStart="32dp"
-            android:text="Obstáculo"
+            android:layout_marginTop="32dp"
+            android:text="@string/obstaculo"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintStart_toEndOf="@id/lblPrimordial"
             app:layout_constraintTop_toBottomOf="@id/txtNuca" />
@@ -157,9 +156,9 @@
             android:id="@+id/txtPrimordial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/lblPrimordial"
             app:layout_constraintStart_toStartOf="@+id/lblPrimordial"
             app:layout_constraintTop_toBottomOf="@+id/lblPrimordial" />
@@ -168,9 +167,9 @@
             android:id="@+id/txtPrincipal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/lblPrincipal"
             app:layout_constraintStart_toStartOf="@+id/lblPrincipal"
             app:layout_constraintTop_toBottomOf="@+id/lblPrincipal" />
@@ -179,9 +178,9 @@
             android:id="@+id/txtObstaculo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="30sp"
             android:textColor="@color/cardview_light_background"
+            android:textSize="30sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@+id/lblObstaculo"
             app:layout_constraintStart_toStartOf="@+id/lblObstaculo"
             app:layout_constraintTop_toBottomOf="@+id/lblObstaculo" />
@@ -190,7 +189,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Testa"
+            android:text="@string/testa"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toTopOf="@+id/txtTesta"
             app:layout_constraintEnd_toEndOf="@+id/txtTesta"
@@ -200,7 +199,7 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Esquerda"
+            android:text="@string/esquerda"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toTopOf="@+id/txtEsq"
             app:layout_constraintEnd_toEndOf="@+id/txtEsq"
@@ -210,7 +209,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Direita"
+            android:text="@string/direita"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toTopOf="@+id/txtDir"
             app:layout_constraintEnd_toEndOf="@+id/txtDir"
@@ -220,7 +219,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Placenta"
+            android:text="@string/placenta"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toTopOf="@+id/txtPlacenta"
             app:layout_constraintEnd_toEndOf="@+id/txtPlacenta"
@@ -230,7 +229,7 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nuca"
+            android:text="@string/nuca"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintEnd_toEndOf="@+id/ivHead"
             app:layout_constraintStart_toStartOf="@+id/ivHead"
@@ -238,6 +237,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>

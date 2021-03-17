@@ -20,6 +20,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -60,9 +61,42 @@ class MainActivity : AppCompatActivity() {
         val btnCalc = findViewById<Button>(R.id.btnCalc)
 
 
-        btnCalc.setOnClickListener {
-            calculate()
-        }
+        btnCalc.setOnClickListener(View.OnClickListener {
+            val getDate: Calendar = Calendar.getInstance()
+            val datepicker = DatePickerDialog(
+                this,
+                android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+
+                    val selectDate = Calendar.getInstance()
+                    selectDate.set(Calendar.YEAR, year)
+                    selectDate.set(Calendar.MONTH, month)
+                    selectDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    date = formatDate.format(selectDate.time)
+                    //Toast.makeText(this, "Date: " + date, Toast.LENGTH_SHORT).show()
+                    txtDate.text = date
+                    txtTesta.text = ""
+                    txtNuca.text = ""
+                    txtDir.text = ""
+                    txtEsq.text = ""
+                    txtPlac.text = ""
+                    txtPrincipal.text = ""
+                    txtPrimordial.text = ""
+                    txtObstaculo.text = ""
+                    calculate()
+
+                },
+                getDate.get(Calendar.YEAR),
+                getDate.get(Calendar.MONTH),
+                getDate.get(Calendar.DAY_OF_MONTH)
+            )
+            datepicker.show()
+
+        })
+
+//        btnCalc.setOnClickListener {
+//            calculate()
+//        }
 
         txtTesta.setOnClickListener {
             showDialog("Testa", txtTesta.text.toString().toInt())
@@ -96,40 +130,7 @@ class MainActivity : AppCompatActivity() {
             showDialog("Obstáculo", txtObstaculo.text.toString().toInt())
         }
 
-        txtDate.setOnClickListener(View.OnClickListener {
-            val getDate: Calendar = Calendar.getInstance()
-            val datepicker = DatePickerDialog(
-                this,
-                android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-
-                    val selectDate = Calendar.getInstance()
-                    selectDate.set(Calendar.YEAR, year)
-                    selectDate.set(Calendar.MONTH, month)
-                    selectDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    date = formatDate.format(selectDate.time)
-                    //Toast.makeText(this, "Date: " + date, Toast.LENGTH_SHORT).show()
-                    txtDate.text = date
-                    txtDate.setTextSize(TypedValue.COMPLEX_UNIT_SP, 36F)
-                    txtDate.setTypeface(null, Typeface.BOLD)
-                    btnCalc.isEnabled = true
-                    txtTesta.text = ""
-                    txtNuca.text = ""
-                    txtDir.text = ""
-                    txtEsq.text = ""
-                    txtPlac.text = ""
-                    txtPrincipal.text = ""
-                    txtPrimordial.text = ""
-                    txtObstaculo.text = ""
-
-                },
-                getDate.get(Calendar.YEAR),
-                getDate.get(Calendar.MONTH),
-                getDate.get(Calendar.DAY_OF_MONTH)
-            )
-            datepicker.show()
-
-        })
+//        txtDate.
     }
 
     private fun calculate() {
@@ -183,6 +184,7 @@ class MainActivity : AppCompatActivity() {
             obstaculo = reduzir(obstaculo)
         }
 
+        txtDate.text = date
         txtPrincipal.text = principal.toString()
         txtTesta.text = testa.toString()
         txtNuca.text = nuca.toString()
@@ -191,6 +193,16 @@ class MainActivity : AppCompatActivity() {
         txtPlac.text = placenta.toString()
         txtPrimordial.text = primordial.toString()
         txtObstaculo.text = obstaculo.toString()
+
+        txtPrincipal.isVisible = true
+        txtTesta.isVisible = true
+        txtNuca.isVisible = true
+        txtEsq.isVisible = true
+        txtDir.isVisible = true
+        txtPlac.isVisible = true
+        txtPrincipal.isVisible = true
+        txtPrimordial.isVisible = true
+        txtObstaculo.isVisible = true
 
     }
 

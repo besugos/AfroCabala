@@ -2,4 +2,14 @@
     <string name="app_name">AfroCabala</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnText">Entre sua data de aniversário</string>
+    <string name="noDate">Nenhuma data escolhida</string>
+    <string name="primordial">Primordial</string>
+    <string name="principal">Principal</string>
+    <string name="obstaculo">Obstáculo</string>
+    <string name="testa">Testa</string>
+    <string name="esquerda">Esquerda</string>
+    <string name="direita">Direita</string>
+    <string name="placenta">Placenta</string>
+    <string name="nuca">Nuca</string>
 </resources>
