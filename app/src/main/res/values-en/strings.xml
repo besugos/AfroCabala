@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placenta">Placenta</string>
+    <string name="close">close</string>
+    <string name="btnText">Enter your birthday</string>
+    <string name="noDate">Please choose a date</string>
+    <string name="primordial">Primordial</string>
+    <string name="principal">Main</string>
+    <string name="obstaculo">Obstacle</string>
+    <string name="testa">Forehead</string>
+    <string name="esquerda">Left</string>
+    <string name="direita">Right</string>
+    <string name="nuca">Back</string>
+    <string name="headtop">Head topview</string>
+    <string name="mais">More...</string>
+</resources>

@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">AfroCabala</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="btnText">Entre sua data de nascimento</string>
     <string name="noDate">Nenhuma data escolhida</string>
     <string name="primordial">Primordial</string>
@@ -13,6 +12,5 @@
     <string name="nuca">Nuca</string>
     <string name="headtop">Cabeça vista de cima</string>
     <string name="mais">Mais…</string>
-    <string name="afrocabala" translatable="false">AfroCabala</string>
-    <string name="close">close</string>
+    <string name="close">fechar</string>
 </resources>

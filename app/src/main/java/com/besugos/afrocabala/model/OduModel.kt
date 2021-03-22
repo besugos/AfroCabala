@@ -1,4 +1,4 @@
-package com.besugos.afrocabala
+package com.besugos.afrocabala.model
 
 data class OduModel (
     val numero: Int,

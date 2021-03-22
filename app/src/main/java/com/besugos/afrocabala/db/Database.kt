@@ -1,4 +1,6 @@
-package com.besugos.afrocabala
+package com.besugos.afrocabala.db
+
+import com.besugos.afrocabala.model.OduModel
 
 public class Database {
 
@@ -112,4 +114,15 @@ public class Database {
             "Rege os obstáculos a superar na vida (método Odulefa Modugbaye)"
     )
 
+    val disclaimer = "AfroCabala é um aplicativo que visa difundir e divulgar a cultura e a religiosidade afro-brasileira. " +
+            "Apresenta uma das muitas metodologias de cálculo para os principais Odu regentes de acordo com a data de nascimento, " +
+            "podendo, entretanto, ser utilizada também para buscar compreender a regência de outras datas. Tanto os cáculos " +
+            "quanto as informações que o app provê acerca dos Odu vem de ensinamentos ancestrais passados pelos mais velhos das " +
+            "tradiçoes afro-brasileiras, tanto do culto a Ifá quanto do Candomblé.\n\nApesar de acreditarmos na importância da divulgação " +
+            "destes conhecimentos, de nenhuma forma o app ou qualquer das informações nele constantes substituem " +
+            "a consulta e o aconselhamento com um Babalaô, Babalorixá ou Yalorixá. Somente eles, através do conhecimento, da " +
+            "mediunidade e da missão que carregam podem interpretar corretamente os dados informados, e muitos outros mais a " +
+            "que têm acesso mediante os oráculos de que dispõe.\n\nAinda nesta seara, este app NÃO informa o Odu nem Orixá regente " +
+            "de ninguém, nem recomenda qualquer Ebó ou oferenda. Estas informações somente poderão ser obtidas através de um sacerdote " +
+            "preparado para tal.\n\nAxé!\n\n"
 }

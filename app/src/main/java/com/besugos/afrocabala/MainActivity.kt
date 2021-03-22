@@ -1,29 +1,25 @@
 package com.besugos.afrocabala
 
-
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.graphics.Typeface
 import android.os.Build
-
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.TypedValue
-
 import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.besugos.afrocabala.db.Database
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,8 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtPrincipal: TextView
     private lateinit var txtPrimordial: TextView
     private lateinit var txtObstaculo: TextView
+    private lateinit var txtMais: TextView
     private lateinit var date: String
+    
     private lateinit var database: Database
+    
     var formatDate = SimpleDateFormat("dd/MM/YYYY", Locale.US)
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -45,7 +44,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        MobileAds.initialize(this) {}
+
+        val mAdView = findViewById<AdView>(R.id.adView)
+                val adRequest = AdRequest.Builder().build()
+                mAdView.loadAd(adRequest)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         database = Database()
 
@@ -58,8 +63,8 @@ class MainActivity : AppCompatActivity() {
         txtPrincipal = findViewById(R.id.txtPrincipal)
         txtPrimordial = findViewById(R.id.txtPrimordial)
         txtObstaculo = findViewById(R.id.txtObstaculo)
+        txtMais = findViewById(R.id.txtMais)
         val btnCalc = findViewById<Button>(R.id.btnCalc)
-
 
         btnCalc.setOnClickListener(View.OnClickListener {
             val getDate: Calendar = Calendar.getInstance()
@@ -94,10 +99,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-//        btnCalc.setOnClickListener {
-//            calculate()
-//        }
-
         txtTesta.setOnClickListener {
             showDialog("Testa", txtTesta.text.toString().toInt())
         }
@@ -130,7 +131,10 @@ class MainActivity : AppCompatActivity() {
             showDialog("Obstáculo", txtObstaculo.text.toString().toInt())
         }
 
-//        txtDate.
+        txtMais.setOnClickListener {
+            showPlusDialog()
+        }
+
     }
 
     private fun calculate() {
@@ -213,12 +217,14 @@ class MainActivity : AppCompatActivity() {
         return n1 + n2
     }
 
-
-    private fun showDialog(origem: String, odu:Int) {
+    @SuppressLint("SetTextI18n")
+    private fun showDialog(origem: String, odu: Int) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.detail_dialog)
+        dialog.window!!.setBackgroundDrawableResource(R.drawable.dialog_rounded_background)
+
 
         val title = dialog.findViewById(R.id.tvTitle) as TextView
         val posExplain = dialog.findViewById(R.id.tvPosExplain) as TextView
@@ -234,14 +240,31 @@ class MainActivity : AppCompatActivity() {
         oduExplain.text = database.definitions[odu]
         sintese.text = database.odu[odu].palavra
 
-
         val yesBtn = dialog.findViewById(R.id.btn_yes) as ImageView
         yesBtn.setOnClickListener {
             dialog.dismiss()
         }
 
         dialog.show()
+    }
 
+    private fun showPlusDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.plus_dialog)
+        dialog.window!!.setBackgroundDrawableResource(R.drawable.dialog_rounded_background)
+
+        val disclaimer = dialog.findViewById(R.id.tvDisclaimer) as TextView
+
+        disclaimer.text = database.disclaimer
+
+        val yesBtn = dialog.findViewById(R.id.btn_yes_plus) as ImageView
+        yesBtn.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     private fun getPosDesc(origem: String): String {

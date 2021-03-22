@@ -7,19 +7,26 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:background="@color/cardview_dark_background"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="16dp"
     android:screenOrientation="portrait"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster"
+        android:text="@string/afrocabala"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCalc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
         android:padding="12dp"
         android:text="@string/btnText"
@@ -27,7 +34,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp"
         android:theme="@style/Widget.AppCompat.Button.Colored"
-        app:cornerRadius="8dp" />
+        app:cornerRadius="8dp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        />
 
     <TextView
         android:id="@+id/txtDate"
@@ -37,6 +48,7 @@
         android:text="@string/noDate"
         android:textColor="@color/cardview_light_background"
         android:textSize="20sp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
 
         />
@@ -44,7 +56,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/base"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="16dp">
 
         <TextView
             android:id="@+id/txtTesta"
@@ -110,14 +123,15 @@
             android:id="@+id/ivHead"
             android:layout_width="200dp"
             android:layout_height="250dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             android:src="@drawable/headtop3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintVertical_bias="0.2"
+            android:contentDescription="@string/headtop" />
 
         <TextView
             android:id="@+id/lblPrimordial"
@@ -235,7 +249,30 @@
             app:layout_constraintStart_toStartOf="@+id/ivHead"
             app:layout_constraintTop_toBottomOf="@+id/ivHead" />
 
+        <TextView
+            android:id="@+id/txtMais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mais"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/adView" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>
